@@ -1,0 +1,36 @@
+[package]
+name = "doom-fish-examples"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+homepage = "https://github.com/doom-fish/doom-fish-examples"
+repository = "https://github.com/doom-fish/doom-fish-examples"
+description = "Cross-crate examples showcasing the doom-fish macOS Rust suite"
+authors = ["Per Johansson <per@doom.fish>"]
+publish = false
+rust-version = "1.70"
+build = "build.rs"
+
+[lints.rust]
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+
+[dependencies]
+apple-cf = { path = "../apple-cf-rs" }
+videotoolbox = { path = "../videotoolbox-rs" }
+avassetwriter = { path = "../avassetwriter-rs" }
+foundation-models = { path = "../foundation-models-rs", features = ["macos_26_0"] }
+vision = { path = "../vision-rs" }
+
+[[bin]]
+name = "ocr_to_summary"
+path = "src/bin/ocr_to_summary.rs"
+
+[[bin]]
+name = "capture_to_mp4"
+path = "src/bin/capture_to_mp4.rs"
+
+[profile.release]
+debug = "full"
+strip = "none"
