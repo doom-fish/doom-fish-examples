@@ -19,7 +19,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let png_path: PathBuf = "/tmp/ocr_to_summary.png".into();
 
     println!("== Step 1: render sample text to PNG ==");
-    _test_helper_render_text_png(SAMPLE_TEXT, 1200, 200, &png_path)?;
+    // Use a wider canvas so OCR doesn't crop the leading 'T' / trailing 'r'.
+    _test_helper_render_text_png(SAMPLE_TEXT, 1600, 240, &png_path)?;
     println!(
         "wrote {} ({} bytes)",
         png_path.display(),
