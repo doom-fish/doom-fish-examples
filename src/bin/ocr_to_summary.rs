@@ -10,8 +10,8 @@
 use std::path::PathBuf;
 
 use foundation_models::prelude::*;
-use vision::prelude::*;
-use vision::recognize_text::_test_helper_render_text_png;
+use apple_vision::prelude::*;
+use apple_vision::recognize_text::_test_helper_render_text_png;
 
 const SAMPLE_TEXT: &str = "The Norse god Thor wielded Mjolnir";
 
