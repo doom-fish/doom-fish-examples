@@ -1,5 +1,5 @@
 //! End-to-end: synthesise a 60-frame animated colour gradient on an
-//! IOSurface, encode it with `videotoolbox`, mux through `avassetwriter`,
+//! `IOSurface`, encode it with `videotoolbox`, mux through `avassetwriter`,
 //! and write a verifiable .mp4 to /tmp.
 //!
 //! This wires apple-cf + videotoolbox + avassetwriter into the same

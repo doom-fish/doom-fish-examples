@@ -21,7 +21,7 @@ apple-cf = { path = "../apple-cf-rs" }
 videotoolbox = { path = "../videotoolbox-rs" }
 avassetwriter = { path = "../avassetwriter-rs" }
 foundation-models = { path = "../foundation-models-rs", features = ["macos_26_0"] }
-apple-vision = { path = "../vision-rs", version = "0.3" }
+apple-vision = { path = "../vision-rs", version = "0.16.6" }
 
 [[bin]]
 name = "ocr_to_summary"

@@ -5,7 +5,7 @@
 //! libraries into their own binaries, they have to set the rpath themselves.
 //!
 //! Without this, `cargo run --bin ocr_to_summary` fails at startup with:
-//!   dyld[…]: Library not loaded: @rpath/libswift_Concurrency.dylib
+//!   `dyld[…]: Library not loaded: @rpath/libswift_Concurrency.dylib`
 
 use std::env;
 use std::process::Command;
