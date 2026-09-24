@@ -8,7 +8,7 @@ repository = "https://github.com/doom-fish/doom-fish-examples"
 description = "Cross-crate examples showcasing the doom-fish macOS Rust suite"
 authors = ["Per Johansson <per@doom.fish>"]
 publish = false
-rust-version = "1.70"
+rust-version = "1.82"
 build = "build.rs"
 
 [lints.rust]
