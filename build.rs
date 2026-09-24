@@ -31,10 +31,6 @@ fn main() {
             println!(
                 "cargo:rustc-link-arg=-Wl,-rpath,{xcode_path}/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx"
             );
-            // Older Swift 5.5 layout — kept for safety on stale toolchains
-            println!(
-                "cargo:rustc-link-arg=-Wl,-rpath,{xcode_path}/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-5.5/macosx"
-            );
         }
     }
 }
