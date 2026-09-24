@@ -116,7 +116,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@02cb101ec7c40f2c49e1d9714d64511d8e1b74de
         with:
           toolchain: "1.82.0"
-      - run: cargo check --lib --all-features
+      - run: cargo check --bins --all-features
 
   audit:
     name: cargo audit
