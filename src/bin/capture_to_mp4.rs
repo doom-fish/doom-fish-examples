@@ -86,10 +86,15 @@ fn run(output: Option<PathBuf>) -> Result<(), Box<dyn std::error::Error>> {
         None => create_private_dir()?.join("capture_to_mp4.mp4"),
     };
 
-    println!("== Step 1: create AVAssetWriter for {} ==", output.display());
+    println!(
+        "== Step 1: create AVAssetWriter for {} ==",
+        output.display()
+    );
     let writer = Writer::create(&output, FileType::Mp4)?;
 
-    println!("== Step 2: configure VideoToolbox encoder (H.264 @ 4 Mbps, {width}×{height} BGRA) ==");
+    println!(
+        "== Step 2: configure VideoToolbox encoder (H.264 @ 4 Mbps, {width}×{height} BGRA) =="
+    );
     let encoder = CompressionSession::builder(width, height, Codec::H264)
         .with_real_time(true)
         .with_average_bit_rate(4_000_000)

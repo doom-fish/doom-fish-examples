@@ -22,7 +22,12 @@ fn run(program: &str, args: &[&Path]) -> Output {
 
 fn assert_is_mp4(path: &Path) {
     let bytes = fs::read(path).expect("read the written MP4");
-    assert!(bytes.len() > 1024, "{} is only {} bytes", path.display(), bytes.len());
+    assert!(
+        bytes.len() > 1024,
+        "{} is only {} bytes",
+        path.display(),
+        bytes.len()
+    );
     assert_eq!(&bytes[4..8], b"ftyp", "{} has no ftyp box", path.display());
 }
 
@@ -31,7 +36,11 @@ fn help_prints_usage_and_succeeds() {
     for (program, name) in [(CAPTURE, "capture_to_mp4"), (OCR, "ocr_to_summary")] {
         for flag in ["--help", "-h"] {
             let output = run(program, &[Path::new(flag)]);
-            assert!(output.status.success(), "{name} {flag}: {:?}", output.status);
+            assert!(
+                output.status.success(),
+                "{name} {flag}: {:?}",
+                output.status
+            );
             let stdout = String::from_utf8_lossy(&output.stdout);
             assert!(stdout.starts_with(&format!("usage: {name} [")), "{stdout}");
         }
@@ -77,7 +86,10 @@ fn capture_never_writes_through_a_symlink() {
     assert_eq!(run(CAPTURE, &[&dangling]).status.code(), Some(1));
 
     assert_eq!(fs::read(&victim).unwrap(), b"keep");
-    assert!(fs::symlink_metadata(&link).unwrap().file_type().is_symlink());
+    assert!(fs::symlink_metadata(&link)
+        .unwrap()
+        .file_type()
+        .is_symlink());
     assert!(fs::symlink_metadata(&absent).is_err());
 }
 
@@ -88,7 +100,11 @@ fn capture_writes_the_given_output() {
 
     let output = run(CAPTURE, &[&output_path]);
 
-    assert!(output.status.success(), "{}", String::from_utf8_lossy(&output.stderr));
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
     assert_is_mp4(&output_path);
 }
 
@@ -101,7 +117,11 @@ fn capture_defaults_to_a_new_private_directory_in_tmpdir() {
         .output()
         .expect("run capture_to_mp4");
 
-    assert!(output.status.success(), "{}", String::from_utf8_lossy(&output.stderr));
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
     let entries: Vec<PathBuf> = fs::read_dir(&tmpdir)
         .unwrap()
         .map(|entry| entry.unwrap().path())
