@@ -61,7 +61,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let session = LanguageModelSession::with_instructions(
         "Summarise the supplied text in a single concise sentence under 20 words. \
          Don't repeat the text verbatim.",
-    );
+    )?;
     let prompt = format!("Summarise:\n{recognised}");
     let summary = session.respond(&prompt)?;
     println!("\nLLM summary:\n  {summary}");
