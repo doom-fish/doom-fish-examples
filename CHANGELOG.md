@@ -27,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Breaking:** `ocr_to_summary` reads `assets/ocr_sample.png`, or the image given on the command line, instead of rendering text to `/tmp/ocr_to_summary.png`.
 - `capture_to_mp4` creates the writer before it configures the encoder, so a bad output path fails before any encoding.
 - Both examples print errors to stderr and exit with status 1, or with status 2 for usage errors.
-- Requirements: apple-cf `>=0.11, <0.12`, apple-vision `>=0.17, <0.18`, avassetwriter `>=0.13, <0.14`, foundation-models `>=0.12, <0.13` and videotoolbox `>=0.21, <0.22`, still as path dependencies. `rust-version` is 1.82 (was 1.70).
+- Requirements: apple-cf `>=0.11, <0.12`, apple-vision `>=0.17, <0.18`, avassetwriter `>=0.14, <0.15`, foundation-models `>=0.12, <0.13` and videotoolbox `>=0.21, <0.22`, still as path dependencies. `rust-version` is 1.82 (was 1.70).
 
 ### Added
 
